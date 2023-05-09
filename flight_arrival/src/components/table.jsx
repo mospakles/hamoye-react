@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import _ from "lodash";
+import Loading from "./loading";
 
 const pageSize = 10;
 export default function Table() {
@@ -41,12 +42,13 @@ export default function Table() {
   return (
     <div>
       {!paginatedData ? (
-        "No data found"
+        <Loading />
       ) : (
         <>
           <div className="flex flex-col bg-slate-100">
-            <div className="my-1 overflow-x-auto mx-2">
-              <div className="py-2 align-middle inline-block min-w-full md:px-5">
+              <div className="my-1 overflow-x-auto mx-2">
+                <h1 className="uppercase text-center text-2xl font-bold mt-2">Flight Table Information</h1>
+                <div className="py-2 align-middle inline-block min-w-full md:px-5">
                 <div className="shadow-2xl overflow-hidden border-b border-gray-400 rounded-lg">
                   <table className="table-auto min-w-full divide-y divide-gray-400 mt-4">
                     <thead className="bg-white table-header-group">
@@ -87,10 +89,10 @@ export default function Table() {
                             ).toLocaleTimeString()}
                           </td>
                           <td className="px-6 py-2 text-lg font-bold text-gray-800 whitespace-nowrap">
-                            {flight.estArrivalAirport}
+                            {flight.estArrivalAirportHorizDistance}
                           </td>
                           <td className="px-6 py-2 text-lg font-bold text-gray-800 whitespace-nowrap">
-                            {flight.estDepartureAirport}
+                            {flight.estDepartureAirportHorizDistance}
                           </td>
                         </tr>
                       ))}
@@ -107,7 +109,7 @@ export default function Table() {
                       className="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
                       onClick={() => pagination(currentPage - 1)}
                     >
-                      Previous
+                      {"<<"}Previous
                     </button>
                   </li>
                 )}
@@ -122,7 +124,7 @@ export default function Table() {
                       className="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
                       onClick={() => pagination(currentPage + 1)}
                     >
-                      Next
+                      Next{">>"}
                     </button>
                   </li>
                 )}

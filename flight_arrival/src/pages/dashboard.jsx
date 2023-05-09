@@ -1,6 +1,7 @@
 import React from 'react'
 import Table from '../components/table';
 import { NavLink } from "react-router-dom";
+import Footer from '../components/footer';
 
 export default function Dashboard() {
 
@@ -15,12 +16,13 @@ export default function Dashboard() {
         </NavLink>
         <NavLink
           to="/login"
-          className="bg-red-500 text-white hover:bg-red-300 hover:text-red-600 text-left text-md font-bold py-3 px-4 rounded-lg" 
+          className="bg-red-500 text-white hover:bg-red-300 hover:text-red-600 text-left text-md font-bold py-3 px-4 rounded-lg"
         >
           LOG OUT
         </NavLink>
       </div>
       <Table />
+      <Footer />
     </>
   );
 }
