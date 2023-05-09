@@ -1,3 +1,5 @@
+You have to signup with your email and password before you can login into the dashboard.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
